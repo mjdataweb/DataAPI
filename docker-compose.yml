@@ -1,4 +1,4 @@
-version: '3.13-slim'
+
 
 services:
   dataapi:
