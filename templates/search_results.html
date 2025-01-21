@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de la recherche</title>
+</head>
+<body>
+    <h1>Résultats de la recherche</h1>
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }} par {{ book.author }}</li>
+            {% endfor %}
+        </ul>
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <p>Aucun livre trouvé pour cet auteur.</p>
+    {% endif %}
+    <a href="/search">Nouvelle recherche</a>
+</body>
+</html>
