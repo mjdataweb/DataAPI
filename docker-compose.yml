@@ -6,12 +6,3 @@ services:
     container_name: dataapi
     ports:
       - "80:80"
-    environment:
-      - NAME=World
-    volumes:
-      - .:/app
-    networks:
-      - app-network
-
-networks:
-  app-network:
