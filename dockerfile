@@ -1,11 +1,12 @@
 FROM python:3.9
 
-WORKDIR /DataAPI
+ENV APP_HOME /app
+WORKDIR $APP_HOME
 
-COPY . /DataAPI
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-EXPOSE 80
+RUN apt-get update
+RUN apt-get install -y libgl1-mesa-dev
+COPY requirements .
+RUN pip install -r requirements
+COPY . .
 
 CMD ["python3", "app.py"]
