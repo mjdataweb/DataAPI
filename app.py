@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -48,12 +48,11 @@ def search_form():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         # Vous pouvez ajouter ici la logique de vérification du login et du mot de passe
         if username == 'admin' and password == 'password':  # Exemple de vérification simple
-            return redirect(url_for('index'))
+            return render_template('index.html')
         else:
             error = 'Nom d\'utilisateur ou mot de passe incorrect'
             return render_template('login.html', error=error)
